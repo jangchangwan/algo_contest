@@ -1,17 +1,17 @@
 import random
 
-f = open('eval_input.txt', 'w')
+f = open('sample_input.txt', 'w')
 
 # T : 테스트 케이스 개수
 # sample_input.txt : T = 5
 # eval_input.txt : T = 50
-T = 50
+T = 5
 f.write(str(T) + '\n')
 for tc in range(1, T+1):
     # N : N * N 행렬
-    # sample_input.txt : range(4, 11)
+    # sample_input.txt : range(4, 7)
     # eval_input.txt : range(4, 51)
-    N = random.choice(range(4, 51))
+    N = random.choice(range(4, 7))
     f.write(str(N) + '\n')
     arr = [[0]*N for _ in range(N)]
     idx_list = []
@@ -23,8 +23,8 @@ for tc in range(1, T+1):
                 idx_list.append((i, j))
                 arr[i][j] = random.choice(range(10))
 
-    # how_many_pick : -1 아이템 개수 0 ~ 5개
-    how_many_pick = random.choice(range(6))
+    # how_many_pick : -1 아이템 개수 0 ~ 2개
+    how_many_pick = random.choice(range(3))
     selected_idx_list = random.sample(idx_list, how_many_pick)
     for i, j in selected_idx_list:
         arr[i][j] = -1
