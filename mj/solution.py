@@ -1,3 +1,6 @@
+from math import ceil
+
+
 def bfs():
     visited = [[1000000]*N for _ in range(N)]
     visited[0][0] = arr[0][0]
@@ -16,8 +19,8 @@ def bfs():
                     visited[ni][nj] = visited[i][j]
                     bleach.append((ni, nj))
                     que.append((ni, nj, bleach))
-            elif (0 <= ni < N) and (0 <= nj < N) and visited[ni][nj] > visited[i][j] + arr[ni][nj]//len(bleach):
-                visited[ni][nj] = visited[i][j] + arr[ni][nj]
+            elif (0 <= ni < N) and (0 <= nj < N) and visited[ni][nj] > visited[i][j] + ceil(arr[ni][nj]/len(bleach)):
+                visited[ni][nj] = visited[i][j] + ceil(arr[ni][nj]/len(bleach))
                 que.append((ni, nj, bleach))
     return visited[N-1][N-1]
 
